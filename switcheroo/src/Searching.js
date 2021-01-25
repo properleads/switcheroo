@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export function EnergySearchingPage() {
+export function SearchingPage() {
 
     function parseURLParams(url) {
         var queryStart = url.indexOf("?") + 1,
@@ -38,10 +38,14 @@ export function EnergySearchingPage() {
     var gclid = 'gclid='+getFee(urlParams.gclid);
     var msclkid = 'msclkid='+getFee(urlParams.msclkid);
 
+    var client = 'cid='+getFee(urlParams.cid);
+
+    var ck = 'ck='+getFee(urlParams.cid);
+
     useEffect(() => {
         const timer = setTimeout(() => {
-            window.location.href = "/energy/offer?"+postCodeName+'&'+ssid+'&'+c1+'&'+c2+'&'+c3+'&'+gclid+'&'+msclkid;
-        }, 5000);
+            window.location.href = "/offer?"+postCodeName+'&'+ssid+'&'+c1+'&'+c2+'&'+c3+'&'+source+'&'+gclid+'&'+msclkid+'&'+client+'&'+ck;
+        }, 3000);
         return () => clearTimeout(timer);
     }, []);
 

@@ -1,6 +1,26 @@
 import React from "react";
 
-export function EnergyThankyouPage() {
+export function ThankyouPage() {
+
+    let provesrc = '';
+
+    !function(o, i) {
+        window.provesrc && window.console && console.error && console.error("ProveSource is included twice in this page."), provesrc = window.provesrc = {
+            dq: [],
+            display: function() {
+                this.dq.push(arguments)
+            }
+        }, o._provesrcAsyncInit = function() {
+            provesrc.init({
+                apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50SWQiOiI1ZjYzM2YwMDUxY2MyOTRmNGQyMGQxMzIiLCJpYXQiOjE2MDYwOTA0Njd9.HraptETqDGjZhfwdysD1xRN6ZzFwUdjLyHcK14v0490",
+                v: "0.0.4"
+            })
+        };
+        var r = i.createElement("script");
+        r.type = "text/javascript", r.async = !0, r["ch" + "ar" + "set"] = "UTF-8", r.src = "https://cdn.provesrc.com/provesrc.js";
+        var e = i.getElementsByTagName("script")[0];
+        e.parentNode.insertBefore(r, e)
+    }(window, document);
 
     const offer = {
         color: '#858585',
@@ -12,15 +32,6 @@ export function EnergyThankyouPage() {
         width: '20px',
         verticalAlign: '-3px',
         marginRight: '5px'
-    };
-
-    const bottomEn = {
-        fontSize: '18px'
-    };
-
-    const offPosition = {
-        margin: '0 auto',
-        maxWidth: '288px'
     };
 
     return (
@@ -41,7 +52,6 @@ export function EnergyThankyouPage() {
                         marginTop: '11px',
                         fontSize: '20px'
                     }}>What's next?</div>
-
 
                     <div style={{fontSize: '16px', textAlign: 'center', color: '#858585',
                         fontWeight: 'bold', marginBottom: '7px', width: '90%', margin: '0 auto' }}>
@@ -76,27 +86,25 @@ export function EnergyThankyouPage() {
                 <div className='promo_bos'>
 
                 <div className='billText'>
-                    Want To Save On Your Broadband? <br />
-                    <span>Pay only &pound;18.99 per month*</span>
+                    Want To Save On Your Energy Bill? <br />
+                    <span>You could save up to &pound;280 per year*</span>
                 </div>
 
-                    <div>
 
-                <div style={{textAlign: 'center'}}>
+                <div className='billImage'>
                     <img alt='' className='promo_img' src={process.env.PUBLIC_URL + '/images/bluecangaroo.jpg'}/>
                 </div>
 
-                <div style={offPosition}>
-                    <div style={bottomEn}><img alt='' style={offerCheck} src={process.env.PUBLIC_URL + '/images/bluecheck.jpg'}/> Totally Unlimited Broadband </div>
-                    <div style={bottomEn}><img alt='' style={offerCheck} src={process.env.PUBLIC_URL + '/images/bluecheck.jpg'}/> Award Winning WIFI Hub</div>
-                    <div style={bottomEn}><img alt='' style={offerCheck} src={process.env.PUBLIC_URL + '/images/bluecheck.jpg'}/> 3.500+ 5* Trustpilot Reviews</div>
+                <div className='offer_list'>
+                    <div className='bottomEn'><img alt='' style={offerCheck} src={process.env.PUBLIC_URL + '/images/bluecheck.jpg'}/> 100 Green Energy Tariffs</div>
+                    <div className='bottomEn'><img alt='' style={offerCheck} src={process.env.PUBLIC_URL + '/images/bluecheck.jpg'}/> 5* Rated Providers</div>
+                    <div className='bottomEn'><img alt='' style={offerCheck} src={process.env.PUBLIC_URL + '/images/bluecheck.jpg'}/> UK Based Customer Service</div>
                 </div>
 
                 <div className='thankButton'>
                     <a className='thankYouLink' rel="noopener noreferrer" href="https://m.me/Switcheroome?ref=w10860760" target="_blank">Find out more ></a>
                 </div>
 
-                    </div>
 
                     </div>
 

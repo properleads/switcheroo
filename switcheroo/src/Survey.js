@@ -10,7 +10,7 @@ import $ from "jquery";
 import "jquery-bar-rating";
 import "pretty-checkbox/dist/pretty-checkbox.css";
 
-import { json } from "./energy_survey_json.js";
+import { json } from "./survey_json.js";
 
 window["$"] = window["jQuery"] = $;
 
@@ -18,7 +18,7 @@ export { MyQuestion } from "./MyQuestion";
 
 Survey.StylesManager.applyTheme("default");
 
-export function EnergySurveyPage() {
+export function SurveyPage() {
 
     function parseURLParams(url) {
         var queryStart = url.indexOf("?") + 1,
@@ -53,62 +53,58 @@ export function EnergySurveyPage() {
     var gclid = 'gclid='+getFee(urlParams.gclid);
     var msclkid = 'msclkid='+getFee(urlParams.msclkid);
 
+    var cid = Number(urlParams.cid) + 1;
+    if(cid > 4) {
+        cid = 0;
+    }
+    var client = 'cid='+cid;
+
+    var ck_val = Number(getFee(urlParams.cid)) + 1;
+    var ck = 'ck='+ck_val;
+
     function onComplete(result) {
         console.log(result.data);
         var c1 = 'c1='+result.data.brand_provider;
-        var c2 = 'c2='+result.data.bedrooms;
-        var c3 = 'c3='+result.data.energy_type;
-        var c4 = 'c4='+result.data.payment_type;
+        var c2 = 'c2='+result.data.speed;
+        var c3 = 'c3='+result.data.home;
+
+        if(result.data.speed === 'Super Fast') {
+            //console.log('here');
+            client = 'cid=2';
+        }
+
         $('.progressBarValue').css('display', 'none');
-        window.location.href = "/energy/offer?"+postCodeName+'&'+ssid+'&'+c1+'&'+c2+'&'+c3+'&'+c4+'&'+source+'&'+gclid+'&'+msclkid;
+        window.location.href = "/searching?"+postCodeName+'&'+ssid+'&'+c1+'&'+c2+'&'+c3+'&'+source+'&'+gclid+'&'+msclkid+'&'+client+'&'+ck;
         //console.log("/searching?"+postCodeName+'&'+ssid+'&'+c1+'&'+c2+'&'+c3+'&'+source);
     }
 
-    let progressBarValue = 20;
+    let progressBarValue = 30;
 
     function onValueChanged(result) {
 
-        progressBarValue = Number(progressBarValue) + 20;
+        progressBarValue = Number(progressBarValue) + 30;
 
         $( ".progressText" ).last().html( progressBarValue +'%');
 
-        if(progressBarValue === 20) {
-            $('.progressText').css('margin-left', '22%');
+        if(progressBarValue === 30) {
+            $('.progressText').css('margin-left', '25%');
             $('.secondText').css('display', 'none');
-            $('.sv_progress_bar').css('width', '20%!important');
-        }
-
-        if(progressBarValue === 40) {
-            $('.progressText').css('margin-left', '39%');
-            $('.secondText').css('display', 'block');
-            $('.sv_progress_bar').css('width', '40%!important');
         }
 
         if(progressBarValue === 60) {
-            $('.progressText').css('margin-left', '59%');
-            $('.secondText').css('display', 'none');
-            $('.sv_progress_bar').css('width', '60%!important');
+            $('.progressText').css('margin-left', '53%');
+            $('.secondText').css('display', 'block');
         }
 
-        if(progressBarValue === 80) {
+        if(progressBarValue === 90) {
             $('.progressText').css('margin-left', '66%');
             $('.secondText').css('display', 'none');
-            $('.sv_progress_bar').css('width', '80%!important');
+            $('.sv_progress_bar').css('width', '95%');
         }
 
     }
 
     var model = new Survey.Model(json);
-
-    const ssl = {
-        margin: "0 auto",
-        paddingTop: "5px",
-        width: "100%",
-        textAlign: "center",
-        color: "#696a69",
-        fontSize: "8px",
-        marginTop: '21px'
-    };
 
     return (
 
@@ -117,7 +113,7 @@ export function EnergySurveyPage() {
         <div className='progressBarValue'>
             <div style={{width:'100%', margin: '0 auto', position: 'relative'}}>
                 <div className='progressText'>
-                    20%
+                    30%
                 </div>
             </div>
         </div>
@@ -128,10 +124,19 @@ export function EnergySurveyPage() {
             onValueChanged={onValueChanged}
           />
 
-        <div style={ssl}><img alt='' style={{width: '11px', verticalAlign: '-2px'}} src={process.env.PUBLIC_URL + '/images/SSL-Lock.png'}/> SSL Secured</div>
+        <div className='secondTextValue'>
+            <div style={{width:'100%', margin: '0 auto', position: 'relative'}}>
+                <div className='secondText'>
+                    <span className='anything'>See All Deals</span>
+                    <span className='broadband'>ADSL</span>
+                    <span className='fiber'>Fibre Optic</span>
+                </div>
+            </div>
+        </div>
+
+        <div className='ssl_footer'><img alt='' style={{width: '11px', verticalAlign: '-2px'}} src={process.env.PUBLIC_URL + '/images/SSL-Lock.png'}/> SSL Secured</div>
 
     </div>
     );
-
   }
   

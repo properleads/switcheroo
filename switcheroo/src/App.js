@@ -34,6 +34,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { MobilePage } from "./mobile/Mobile";
 import { MobileSurveyPage } from "./mobile/Survey";
 import { MobileOfferPage } from "./mobile/MobileOffer";
+import { MobileThankyouPage } from "./mobile/Thankyou";
 
 export default function SurveyJSReactApplication() {
 
@@ -145,6 +146,10 @@ export default function SurveyJSReactApplication() {
 
           <Route exact path="/mobile/offer">
             <MobileOfferPage />
+          </Route>
+
+          <Route exact path="/mobile/thank-you">
+            <MobileThankyouPage />
           </Route>
 
           <Route component={NotFoundPage} />
