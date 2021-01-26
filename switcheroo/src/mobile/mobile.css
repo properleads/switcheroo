@@ -2039,7 +2039,73 @@ body {
     background-size: 1338px;
 }
 
+.mobilebillText {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 18px;
+    color: white!important;
+    font-weight: bold;
+}
+.buttomBurronThank {
+    margin-top: 79px!important;
+}
+.mobilethankYouHead {
+    background-color: #fc30d0!important;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+    color: white!important;
+    width: 34%;
+    margin: 10px auto 0;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.mobilebillText span {
+    font-size: 20px;
+}
+
+.mobilethankBody {
+    width: 34%;
+    margin: 0 auto;
+    border: 1px solid;
+    border-radius: 0 0 20px 20px;
+    background-color: white!important;
+    margin-bottom: 20px;
+    padding-bottom: 18px;
+}
+
+.mobile_promo_bos {
+    background: url(/images/mobile/Capture.PNG);
+    background-color: #a1ccd3;
+    height: 283px;
+    background-position: 1px -29px;
+    background-repeat: no-repeat;
+    background-size: 1060px;
+    text-align: center;
+    width: 1060px;
+    margin: 0px auto;
+    float: left;
+}
+
 @media only screen and (max-width: 480px) {
+
+    .mobile_promo_bos {
+        background: url(/images/mobile/Capture.PNG);
+        background-color: #a1ccd3;
+        height: 283px;
+        background-position: 4px -29px;
+        background-repeat: no-repeat;
+        background-size: 1130px;
+        text-align: center;
+        width: 100%;
+        margin: 0px auto;
+        float: left;
+    }
+
+    .mobilethankYouHead, .mobilethankBody {
+        width: 92%;
+    }
+
     .mobilespeedHeaderPosition {
         margin-left: 1px;
         padding-top: 0px;

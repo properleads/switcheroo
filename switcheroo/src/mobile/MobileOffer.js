@@ -80,11 +80,11 @@ class MobileNameForm extends React.Component {
                 // We convert the React state to JSON and send it as the POST body
                 body: JSON.stringify(this.state)
             }).then(function (response) {
-                window.location.href = "/energy/thank-you";
+                window.location.href = "/mobile/thank-you";
             });
 
             setTimeout(() => {
-                window.location.href = "/energy/thank-you";
+                window.location.href = "/mobile/thank-you";
             }, 500);
 
         }
